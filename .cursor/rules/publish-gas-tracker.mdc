@@ -1,0 +1,13 @@
+---
+description: After codebase updates, push Gas-Tracker and let GitHub Pages republish
+alwaysApply: true
+---
+
+When the user asks to update this codebase, finish the code change, then commit and push to `main` on https://github.com/NeverSMILE0825/Gas-Tracker.git so GitHub Actions republishes https://neversmile0825.github.io/Gas-Tracker/.
+
+- Remote URL must include the NeverSMILE0825 user: `https://NeverSMILE0825@github.com/NeverSMILE0825/Gas-Tracker.git`.
+- Do not print tokens or credential-manager secrets.
+- Do not commit `.env`, `node_modules`, `.next`, `.next-pages`, or `out`.
+- Do not change git config, force-push, or skip hooks.
+- Pages is a static in-browser demo (`GITHUB_PAGES=true`, `NEXT_PUBLIC_DATA_SOURCE=browser`). Do not claim the live site is mainnet.
+- If the user explicitly says not to push, skip the push.

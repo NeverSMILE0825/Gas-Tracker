@@ -1,0 +1,17 @@
+node_modules
+dist
+.next
+.next-pages
+out
+coverage
+playwright-report
+test-results
+blob-report
+.env
+.env.local
+apps/web/public/runtime-config.json
+*.log
+.DS_Store
+tsconfig.tsbuildinfo
+.turbo
+*.tsbuildinfo

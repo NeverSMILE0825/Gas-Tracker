@@ -1,0 +1,23 @@
+{
+  "name": "gasscope",
+  "private": true,
+  "version": "1.0.0",
+  "description": "GasScope — Ethereum mainnet execution gas causality and fee intelligence",
+  "scripts": {
+    "dev": "pnpm --parallel --filter @gasscope/api --filter @gasscope/web dev",
+    "dev:worker": "pnpm --filter @gasscope/worker dev",
+    "test": "pnpm --filter @gasscope/shared --filter @gasscope/analytics --filter @gasscope/db --filter @gasscope/api test",
+    "typecheck": "pnpm -r --if-present typecheck",
+    "lint": "pnpm -r --if-present lint",
+    "build": "pnpm -r --if-present build",
+    "test:e2e": "pnpm exec playwright test"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "typescript": "^5.9.2"
+  },
+  "packageManager": "pnpm@10.33.3"
+}
