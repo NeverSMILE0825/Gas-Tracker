@@ -72,7 +72,7 @@ export function DriverTable({ rows, hrefFor }: { rows: DriverRowDto[]; hrefFor?:
                 <td className="num">{row.rank}</td>
                 <td>
                   {href ? (
-                    <Link className="text-cyan" href={`${href}${search}`}>
+                    <Link className="text-cyan" href={href.includes('?') ? href : `${href}${search}`}>
                       {row.label}
                       <div className="text-xs text-muted">{short(row.key)}</div>
                     </Link>
