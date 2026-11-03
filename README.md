@@ -32,7 +32,7 @@ The memory API appends a synthetic block about every 12 seconds. No Docker and n
 
 https://neversmile0825.github.io/Gas-Tracker/
 
-GitHub Pages serves static files only. That site runs the same synthetic demo in the browser. It is not Ethereum mainnet, and it does not use the Fastify API, the worker, Postgres, or Redis. A push to `main` on https://github.com/NeverSMILE0825/Gas-Tracker runs `.github/workflows/pages.yml` and publishes the static export in `apps/web/.next-pages`.
+GitHub Pages serves static files only. That site runs the same synthetic demo in the browser. It is not Ethereum mainnet, and it does not use the Fastify API, the worker, Postgres, or Redis. Source stays on `main`. The published files are the static export, pushed to the `gh-pages` branch.
 
 Local `pnpm --filter @gasscope/web dev` still talks to the API on port 4000. The static export is a separate build:
 

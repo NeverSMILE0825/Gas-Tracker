@@ -1,13 +1,22 @@
 ---
-description: After codebase updates, push Gas-Tracker and let GitHub Pages republish
+description: After codebase updates, push Gas-Tracker and republish GitHub Pages
 alwaysApply: true
 ---
 
-When the user asks to update this codebase, finish the code change, then commit and push to `main` on https://github.com/NeverSMILE0825/Gas-Tracker.git so GitHub Actions republishes https://neversmile0825.github.io/Gas-Tracker/.
+When the user asks to update this codebase, finish the code change, then commit and push `main`, rebuild the static demo, and push that export to `gh-pages` so https://neversmile0825.github.io/Gas-Tracker/ updates.
 
 - Remote URL must include the NeverSMILE0825 user: `https://NeverSMILE0825@github.com/NeverSMILE0825/Gas-Tracker.git`.
+- The stored GitHub credential has `repo` scope and cannot push `.github/workflows`. Publish by copying `apps/web/.next-pages` to an orphan `gh-pages` commit. Do not add a GitHub Actions workflow.
+- Static export command, from the repo root:
+
+```powershell
+$env:GITHUB_PAGES='true'
+$env:NEXT_PUBLIC_DATA_SOURCE='browser'
+pnpm --filter @gasscope/web build
+```
+
 - Do not print tokens or credential-manager secrets.
-- Do not commit `.env`, `node_modules`, `.next`, `.next-pages`, or `out`.
-- Do not change git config, force-push, or skip hooks.
-- Pages is a static in-browser demo (`GITHUB_PAGES=true`, `NEXT_PUBLIC_DATA_SOURCE=browser`). Do not claim the live site is mainnet.
+- Do not commit `.env`, `node_modules`, `.next`, `.next-pages`, or `out` on `main`.
+- Do not change git config, force-push `main`, or skip hooks. Updating `gh-pages` replaces that branch with the new static export.
+- The published site is the in-browser synthetic demo. Do not claim it is mainnet.
 - If the user explicitly says not to push, skip the push.
